@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--旋转之前，立刻设置透明度alpha为0-->
+    <objectAnimator
+        android:duration="0"
+        android:propertyName="alpha"
+        android:valueFrom="1.0"
+        android:valueTo="0.0" />
+
+    <!--旋转-->
+    <objectAnimator
+        android:duration="@integer/card_flip_time_full"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:propertyName="rotationY"
+        android:valueFrom="-180"
+        android:valueTo="0" />
+
+    <!--旋转中途(时间偏移量取决于startOffset属性)设置透明度为1-->
+    <objectAnimator
+        android:duration="1"
+        android:propertyName="alpha"
+        android:startOffset="@integer/card_flip_time_half"
+        android:valueFrom="0.0"
+        android:valueTo="1.0" />
+</set>
